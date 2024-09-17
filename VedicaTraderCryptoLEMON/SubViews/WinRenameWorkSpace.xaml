@@ -1,0 +1,79 @@
+﻿<syncfusion:ChromelessWindow x:Class="VedicaTraderCryptoLEMON.SubViews.WinRenameWorkSpace"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:System="clr-namespace:System;assembly=mscorlib"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+    xmlns:listCollection="clr-namespace:System.Collections;assembly=mscorlib"
+    xmlns:local="clr-namespace:VedicaTraderCryptoLEMON"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:skinManager="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
+    xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+    Title="{Binding AppTitle}"
+    Width="543"
+    Height="163"
+    BorderThickness="0"
+    AllowsTransparency="True"
+    CloseButtonTemplate="{DynamicResource ProductsWindowCloseButtonTemplate}"
+    RestoreButtonTemplate="{DynamicResource ProductsWindowRestoreButtonTemplate}"
+    MaximizeButtonTemplate="{DynamicResource ProductsWindowMaximizeButtonTemplate}"
+    MinimizeButtonTemplate="{DynamicResource ProductsWindowMinimizeButtonTemplate}"
+    ResizeBorderThickness="0"
+    ShowIcon="False"
+    Icon="/Assets/App.ico"
+    TitleBarBackground="{Binding TitleBarBackground, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+    TitleBarForeground="{Binding TitleBarForeground, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+    TitleBarHeight="40"
+    TitleTextAlignment="Center"
+    TitleFontSize="14"
+    WindowStartupLocation="CenterScreen"
+    WindowState="Normal"
+    ResizeMode="NoResize"
+    mc:Ignorable="d" FontFamily="Copperplate Gothic Light" ShowMaximizeButton="False" ShowMinimizeButton="False">
+
+    <syncfusion:ChromelessWindow.DataContext>
+        <local:LoginModel/>
+    </syncfusion:ChromelessWindow.DataContext>
+
+    <syncfusion:ChromelessWindow.Resources>
+        <ResourceDictionary>
+            <skinManager:Theme x:Key="themeName" ThemeName="Office2019Black"/>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Views/VedicaTraderStyles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </syncfusion:ChromelessWindow.Resources>
+    <syncfusion:ChromelessWindow.LeftHeaderItemsSource>
+        <listCollection:ArrayList>
+            <Image
+                Width="24"
+                Height="24"
+                Margin="12,0,3,0"
+                Source="/Views/App.png" />
+        </listCollection:ArrayList>
+    </syncfusion:ChromelessWindow.LeftHeaderItemsSource>
+
+    <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="205*"/>
+                <ColumnDefinition Width="338*"/>
+            </Grid.ColumnDefinitions>
+            <TextBox x:Name="tbxName" Grid.Column="1"  HorizontalAlignment="Left" Margin="5,25,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="285" Height="20" FontFamily="Copperplate Gothic Light" CharacterCasing="Upper"/>
+            <TextBlock  Text="Workspace's name:" TextAlignment="Right" TextWrapping="Wrap" Margin="23,28,0,0" HorizontalAlignment="Left" Width="177" FontFamily="Copperplate Gothic Light" Height="15" VerticalAlignment="Top"/>
+        </Grid>
+        <Grid Grid.Row="1" Margin="0,4,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="359*"/>
+                <ColumnDefinition Width="184*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="btnCreate" Content="Update" HorizontalAlignment="Left" Margin="234,5,0,0" VerticalAlignment="Top" FontFamily="Copperplate Gothic Light" Width="115" Height="24" Cursor="Hand" Click="btnCreate_Click"/>
+            <Button x:Name="btnCancel" Content="Cancel" HorizontalAlignment="Left" Margin="10,5,0,0" FontFamily="Copperplate Gothic Light" Width="116" Grid.Column="1" Height="24" VerticalAlignment="Top" Cursor="Hand" Click="btnCancel_Click"/>
+        </Grid>
+    </Grid>
+
+</syncfusion:ChromelessWindow>

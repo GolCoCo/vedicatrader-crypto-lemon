@@ -1,0 +1,213 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:listCollection="clr-namespace:System.Collections;assembly=mscorlib"
+    xmlns:local="clr-namespace:VedicaTraderCryptoLEMON"
+    xmlns:shared="clr-namespace:Syncfusion.Windows.Shared;assembly=Syncfusion.Shared.WPF"
+    xmlns:skinManager="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
+    xmlns:syncfusion="http://schemas.syncfusion.com/wpf">
+
+    <SolidColorBrush x:Key="ChromelessWindow.TitleBar.Button.Static.Glyph" Color="#000000" />
+    <SolidColorBrush x:Key="ChromelessWindow.TitleBar.Button.MouseOver.Background" Color="#30ffffff" />
+    <SolidColorBrush x:Key="Disabled.Foreground" Color="#000000" Opacity="0.38" />
+    <syncfusion:TemplateToVisibilityConverter x:Key="dropDownTemplateConvertor" />
+
+    <ControlTemplate x:Key="TemplateLabelLogin" TargetType="{x:Type Label}">
+        <TextBlock Margin="{TemplateBinding Padding}"
+                       TextDecorations="Underline"
+                       Text="{Binding Content, RelativeSource={RelativeSource AncestorType={x:Type Label}}}"/>
+    </ControlTemplate>
+
+    <HierarchicalDataTemplate x:Key="MenuItemTemplate" ItemsSource="{Binding MenuCollection}">
+        <TextBlock Text="{Binding Name}" Padding="4,0,4,0" Cursor="Hand"/>
+    </HierarchicalDataTemplate>
+
+    <DataTemplate x:Key="TemplateTabControlItem">
+        <TextBlock Text="{Binding Header}" MinWidth="86" TextAlignment="Center" Cursor="Hand"/>
+    </DataTemplate>
+
+    <DataTemplate x:Key="TemplateDocuSubFormTitle">
+        <TextBlock Text="{Binding Header}" TextAlignment="Center"/>
+    </DataTemplate>
+
+    <DataTemplate x:Key="TemplateTooltipSriChartCell">
+        <Border Background="White"
+                    BorderBrush="Black"
+                    BorderThickness="0"
+                    CornerRadius="2">
+            <StackPanel Margin="5"
+                            VerticalAlignment="Center"
+                            Orientation="Horizontal">
+                <TextBlock VerticalAlignment="Center" Text="{Binding CellValue2}" />
+            </StackPanel>
+        </Border>
+    </DataTemplate>
+
+    <DrawingImage x:Key="MainWindowIcon">
+        <DrawingImage.Drawing>
+            <GeometryDrawing Brush="#ffffff" Geometry="M38.649015,47.214996 L54.85803,47.214996 54.85803,63.440021 38.649015,63.440021 z M19.310003,47.214996 L35.522028,47.214996 35.522028,63.440021 19.310003,63.440021 z M0.026000977,47.214996 L16.240011,47.214996 16.240011,63.440021 0.026000977,63.440021 z M38.623978,27.908966 L54.834018,27.908966 54.834018,44.138023 38.623978,44.138023 z M19.284006,27.908966 L35.493984,27.908966 35.493984,44.138023 19.284006,44.138023 z M0,27.908966 L16.212027,27.908966 16.212027,44.138023 0,44.138023 z M19.284006,8.6250228 L35.493984,8.6250228 35.493984,24.849987 19.284006,24.849987 z M0,8.6250228 L16.212027,8.6250228 16.212027,24.849987 0,24.849987 z M52.916042,0 L65.511017,10.699971 54.814053,23.292002 42.219017,12.592976 z" />
+        </DrawingImage.Drawing>
+    </DrawingImage>
+
+    <DrawingImage x:Key="ProductWindowIcon">
+        <DrawingImage.Drawing>
+            <GeometryDrawing Brush="{Binding Path=TitleBarForeground, RelativeSource={RelativeSource AncestorType=syncfusion:ChromelessWindow}}" Geometry="M38.649015,47.214996 L54.85803,47.214996 54.85803,63.440021 38.649015,63.440021 z M19.310003,47.214996 L35.522028,47.214996 35.522028,63.440021 19.310003,63.440021 z M0.026000977,47.214996 L16.240011,47.214996 16.240011,63.440021 0.026000977,63.440021 z M38.623978,27.908966 L54.834018,27.908966 54.834018,44.138023 38.623978,44.138023 z M19.284006,27.908966 L35.493984,27.908966 35.493984,44.138023 19.284006,44.138023 z M0,27.908966 L16.212027,27.908966 16.212027,44.138023 0,44.138023 z M19.284006,8.6250228 L35.493984,8.6250228 35.493984,24.849987 19.284006,24.849987 z M0,8.6250228 L16.212027,8.6250228 16.212027,24.849987 0,24.849987 z M52.916042,0 L65.511017,10.699971 54.814053,23.292002 42.219017,12.592976 z" />
+        </DrawingImage.Drawing>
+    </DrawingImage>
+
+    <ControlTemplate x:Key="ProductsWindowMaximizeButtonTemplate" TargetType="{x:Type syncfusion:TitleButton}">
+        <Border
+            x:Name="maxborder"
+            MinWidth="30"
+            MinHeight="30"
+            Background="Transparent"
+            BorderBrush="Transparent"
+            BorderThickness="0"
+            SnapsToDevicePixels="true">
+            <Path
+                    Name="pathButton"
+                    Width="12"
+                    Height="12"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Data="M0.5 4C0.5 2.067 2.067 0.5 4 0.5H8C9.933 0.5 11.5 2.067 11.5 4V8C11.5 9.933 9.933 11.5 8 11.5H4C2.067 11.5 0.5 9.933 0.5 8V4Z"
+                    SnapsToDevicePixels="True"
+                    Stretch="Fill"
+                    Stroke="{Binding Path=TitleBarForeground, RelativeSource={RelativeSource AncestorType=syncfusion:ChromelessWindow}}"
+                    StrokeThickness="1" />
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger SourceName="maxborder" Property="IsMouseOver" Value="True">
+                <Setter TargetName="maxborder" Property="Background" Value="{StaticResource ChromelessWindow.TitleBar.Button.MouseOver.Background}" />
+            </Trigger>
+            <Trigger Property="Visibility" Value="Visible">
+                <Setter Property="MinHeight" Value="30" />
+                <Setter Property="MinWidth" Value="30" />
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <ControlTemplate x:Key="ProductsWindowCloseButtonTemplate">
+        <Border
+            x:Name="closeborder"
+            Width="30"
+            Height="30"
+            Background="Transparent"
+            BorderBrush="Transparent"
+            BorderThickness="0"
+            SnapsToDevicePixels="true">
+            <Path
+                    Name="pathButton"
+                    Width="9"
+                    Height="9"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Data="M12 4L4 12M4 4L12 12" StrokeStartLineCap="Round" StrokeEndLineCap="Round" StrokeLineJoin="Round"
+                    Stroke="{Binding Path=TitleBarForeground, RelativeSource={RelativeSource AncestorType=syncfusion:ChromelessWindow}}"
+                    SnapsToDevicePixels="True"
+                    Stretch="Fill" />
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger SourceName="closeborder" Property="IsMouseOver" Value="True">
+                <Setter TargetName="closeborder" Property="Background" Value="{StaticResource ChromelessWindow.TitleBar.Button.MouseOver.Background}" />
+            </Trigger>
+            <Trigger Property="Visibility" Value="Visible">
+                <Setter Property="MinHeight" Value="30" />
+                <Setter Property="MinWidth" Value="30" />
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <ControlTemplate TargetType="{x:Type ToggleButton}" x:Key="ThemeButton">
+        <Border x:Name="ThemeButtonBorder"
+                Padding="{TemplateBinding Padding}"
+                CornerRadius="4"
+                Background="{TemplateBinding Background}">
+            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#1AFFFFFF" />
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Background" Value="#33FFFFFF"/>
+            </Trigger>
+            <Trigger Property="IsChecked" Value="True">
+                <Setter Property="Background" Value="#33FFFFFF"/>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <ControlTemplate x:Key="ProductsWindowMinimizeButtonTemplate">
+        <Border
+            x:Name="minimizeborder"
+            Width="30"
+            Height="30"
+            Background="Transparent"
+            BorderBrush="Transparent"
+            BorderThickness="0"
+            SnapsToDevicePixels="true">
+            <Grid
+                x:Name="grid"
+                Width="16"
+                Height="16"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                SnapsToDevicePixels="true">
+                <Path
+                    Name="pathButton"
+                    Width="11"
+                    Height="1"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Data="M3 8H13"
+                    StrokeEndLineCap="Round" StrokeStartLineCap="Round"
+                    Stroke="{Binding Path=TitleBarForeground, RelativeSource={RelativeSource AncestorType=syncfusion:ChromelessWindow}}"
+                    SnapsToDevicePixels="True"
+                    Stretch="Fill" />
+            </Grid>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger SourceName="minimizeborder" Property="IsMouseOver" Value="True">
+                <Setter TargetName="minimizeborder" Property="Background" Value="{StaticResource ChromelessWindow.TitleBar.Button.MouseOver.Background}" />
+            </Trigger>
+            <Trigger Property="Visibility" Value="Visible">
+                <Setter Property="MinHeight" Value="30" />
+                <Setter Property="MinWidth" Value="30" />
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <ControlTemplate x:Key="ProductsWindowRestoreButtonTemplate">
+        <Border
+            x:Name="restoreborder"
+            Width="30"
+            Height="30"
+            Background="Transparent"
+            BorderBrush="Transparent"
+            BorderThickness="0"
+            SnapsToDevicePixels="true">
+            <Path
+                    Name="pathButton"
+                    Width="13"
+                    Height="13"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Data="M4 0C3.72386 0 3.5 0.223858 3.5 0.5C3.5 0.776142 3.72386 1 4 1H10C11.1046 1 12 1.89543 12 3V9C12 9.27614 12.2239 9.5 12.5 9.5C12.7761 9.5 13 9.27614 13 9V3C13 1.34315 11.6569 0 10 0H4ZM2.5 3H8.5C9.32843 3 10 3.67157 10 4.5V10.5C10 11.3284 9.32843 12 8.5 12H2.5C1.67157 12 1 11.3284 1 10.5V4.5C1 3.67157 1.67157 3 2.5 3ZM0 4.5C0 3.11929 1.11929 2 2.5 2H8.5C9.88071 2 11 3.11929 11 4.5V10.5C11 11.8807 9.88071 13 8.5 13H2.5C1.11929 13 0 11.8807 0 10.5V4.5Z"
+                    Fill="{Binding Path=TitleBarForeground, RelativeSource={RelativeSource AncestorType=syncfusion:ChromelessWindow}}"
+                    SnapsToDevicePixels="True"
+                    Stretch="Fill" />
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger SourceName="restoreborder" Property="IsMouseOver" Value="True">
+                <Setter TargetName="restoreborder" Property="Background" Value="{StaticResource ChromelessWindow.TitleBar.Button.MouseOver.Background}" />
+            </Trigger>
+            <Trigger Property="Visibility" Value="Visible">
+                <Setter Property="MinHeight" Value="30" />
+                <Setter Property="MinWidth" Value="30" />
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+</ResourceDictionary>

@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_LastSelectedProfileId>E:\%40Work\Umesh\WPFApps\VedicaTraderForex\VedicaTraderForex\Properties\PublishProfiles\FolderProfile.pubxml</_LastSelectedProfileId>
+  </PropertyGroup>
+  <ItemGroup>
+    <ApplicationDefinition Update="App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="SubViews\WinMessageBox.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="SubViews\WinNewWorkSpace.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Assets\Menu\Icon.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="SubViews\WinMessageBox.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="SubViews\WinOpenWorkSpace.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="SubViews\WinAbout.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="SubViews\WinRenameWorkSpace.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="SubViews\WinNewWorkSpace.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\CtrlDocumentView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\CtrlDualChart.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\VedicaTraderStyles.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\WinActivation.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\WinDeActivation.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\WinWorkspace.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,127 @@
+﻿<syncfusion:ChromelessWindow x:Class="VedicaTraderCryptoLEMON.Views.WinWorkspace"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:System="clr-namespace:System;assembly=mscorlib"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+    xmlns:listCollection="clr-namespace:System.Collections;assembly=mscorlib"
+    xmlns:local="clr-namespace:VedicaTraderCryptoLEMON"                    
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:skinManager="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
+    skinManager:SfSkinManager.Theme="{skinManager:SkinManagerExtension ThemeName=Office2019Black}"
+    xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+    Title="{Binding AppTitle}"
+    Width="1031"
+    Height="552"
+    BorderThickness="0"
+    AllowsTransparency="True"
+    CloseButtonTemplate="{DynamicResource ProductsWindowCloseButtonTemplate}"
+    RestoreButtonTemplate="{DynamicResource ProductsWindowRestoreButtonTemplate}"
+    MaximizeButtonTemplate="{DynamicResource ProductsWindowMaximizeButtonTemplate}"
+    MinimizeButtonTemplate="{DynamicResource ProductsWindowMinimizeButtonTemplate}"
+    ResizeBorderThickness="0"
+    ShowIcon="False"
+    Icon="/Assets/App.ico"
+    TitleBarBackground="{Binding TitleBarBackground, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+    TitleBarForeground="{Binding TitleBarForeground, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+    TitleBarHeight="40"
+    TitleTextAlignment="Center"
+    TitleFontSize="14"
+    WindowStartupLocation="CenterScreen"
+    WindowState="Maximized"
+    Closed="ChromelessWindow_Closed"
+    mc:Ignorable="d" FontFamily="Copperplate Gothic Light" ShowMaximizeButton="True" ShowMinimizeButton="True">
+
+    <syncfusion:ChromelessWindow.DataContext>
+        <local:ViewModel/>
+    </syncfusion:ChromelessWindow.DataContext>
+
+    <syncfusion:ChromelessWindow.Resources>
+        <ResourceDictionary>
+            <skinManager:Theme x:Key="themeName" ThemeName="Office2019Black"/>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="VedicaTraderStyles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </syncfusion:ChromelessWindow.Resources>
+    <syncfusion:ChromelessWindow.LeftHeaderItemsSource>
+        <listCollection:ArrayList>
+            <Image
+                Width="24"
+                Height="24"
+                Margin="12,0,3,0"
+                Source="/Views/App.png" />
+        </listCollection:ArrayList>
+    </syncfusion:ChromelessWindow.LeftHeaderItemsSource>
+
+
+    <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="22"/>
+            <RowDefinition/>
+            <RowDefinition Height="24"/>
+        </Grid.RowDefinitions>
+
+        <syncfusion:MenuAdv
+            x:Name="menu"
+            Height="22"
+            Cursor="Hand"
+            HorizontalAlignment="Stretch"
+            skinManager:SfSkinManager.Theme = "{StaticResource themeName}"
+            PopUpAnimationType="Scroll"
+            ItemTemplate="{StaticResource MenuItemTemplate}" ItemsSource="{Binding MenuModels}">
+            <syncfusion:MenuAdv.ItemContainerStyle>
+                <Style BasedOn="{StaticResource {x:Type syncfusion:MenuItemAdv}}" TargetType="{x:Type syncfusion:MenuItemAdv}">
+                    <Setter Property="Command" Value="{Binding Command}" />
+                    <Setter Property="CommandParameter" Value="{Binding Name}" />
+                    <Setter Property="Icon" Value="{Binding Icon}" />
+                </Style>
+            </syncfusion:MenuAdv.ItemContainerStyle>
+        </syncfusion:MenuAdv>
+        <Grid Grid.Row="1">
+            <syncfusion:TabControlExt
+                    x:Name="TabControl"
+                    BorderThickness="0.5"
+                    CloseButtonType="Individual"
+                    EnableLabelEdit="True"
+                    TabItemHeaderStyle="Underline"
+                    ItemsSource="{Binding TabModels}"
+                    ShowTabItemContextMenu="True"
+                    ShowTabListContextMenu="True"
+                    TabItemLayout="SingleLine"
+                    TabItemSize="Normal"
+                    TabScrollButtonVisibility="Auto"
+                    TabScrollStyle="Normal"
+                    skinManager:SfSkinManager.Theme = "{StaticResource themeName}"
+                    TabStripPlacement="Bottom"
+                    ItemTemplate="{StaticResource TemplateTabControlItem}"
+                    >
+                <syncfusion:TabControlExt.ItemContainerStyle>
+                    <Style BasedOn="{StaticResource {x:Type syncfusion:TabItemExt}}" TargetType="{x:Type syncfusion:TabItemExt}">
+                        <Setter Property="CanClose" Value="{Binding IsClose}" />
+                        <Setter Property="CloseButtonState" Value="{Binding CloseState}" />
+                    </Style>
+                </syncfusion:TabControlExt.ItemContainerStyle>
+                <syncfusion:TabControlExt.ContentTemplate>
+                    <DataTemplate>
+                        <local:CtrlDocumentView ChartInfos ="{Binding ChartModels}" local:ViewModel.CurrentTabName="{Binding Header}"/>
+                    </DataTemplate>
+                </syncfusion:TabControlExt.ContentTemplate>
+            </syncfusion:TabControlExt>
+        </Grid>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="95"/>
+                <ColumnDefinition Width="169"/>
+                <ColumnDefinition Width="76"/>
+                <ColumnDefinition Width="180"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="3" TextAlignment="Right" TextWrapping="Wrap" Text="Status:" FontFamily="Copperplate Gothic Light" Height="12" VerticalAlignment="Center" Margin="8,0,7,0"/>
+            <TextBlock x:Name="tbxConneted" Grid.Column="4" TextAlignment="Center" Text="{Binding ConnectStatus, Mode=TwoWay}" Foreground="White" FontFamily="Copperplate Gothic Light" Background="{Binding ConnectColor, Mode=TwoWay}" HorizontalAlignment="Center" Width="180" Margin="0,4,2,4"/>
+            <TextBlock Grid.Column="1" TextAlignment="Right" TextWrapping="Wrap" Text="DateTime:" FontFamily="Copperplate Gothic Light" Height="12" VerticalAlignment="Center" Margin="8,0,10,0"/>
+            <TextBlock x:Name="lblPCDateTime" Foreground="LightYellow" Grid.Column="2" TextAlignment="Left" Text="" FontFamily="Copperplate Gothic Light" Height="12" VerticalAlignment="Center" Margin="10,0,10,0"/>
+        </Grid>
+    </Grid>
+
+</syncfusion:ChromelessWindow>

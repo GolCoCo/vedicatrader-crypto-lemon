@@ -1,0 +1,112 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>disable</Nullable>
+    <UseWPF>true</UseWPF>
+    <ApplicationIcon>App.ico</ApplicationIcon>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+	<IncludeAllContentForSelfExtract>true</IncludeAllContentForSelfExtract>
+    <Platforms>AnyCPU;x64</Platforms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Views\App.png" />
+    <None Remove="Views\flag_usa.png" />
+    <None Remove="Views\lock2.png" />
+    <None Remove="Views\Login-Screen-Logo.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="App.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AWSSDK.S3" Version="3.7.308" />
+    <PackageReference Include="CsvHelper" Version="32.0.3" />
+    <PackageReference Include="DeviceId" Version="6.6.0" />
+    <PackageReference Include="FastMember" Version="1.5.0" />
+    <PackageReference Include="FirebaseDatabase.net" Version="4.2.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="SharpZipLib" Version="1.4.2" />
+    <PackageReference Include="Standart.Hash.xxHash" Version="4.0.5" />
+    <PackageReference Include="supabase-csharp" Version="0.16.2" />
+    <PackageReference Include="Syncfusion.Grid.WPF" Version="25.2.3" />
+    <PackageReference Include="Syncfusion.Licensing" Version="25.2.3" />
+    <PackageReference Include="Syncfusion.SfBusyIndicator.WPF" Version="25.2.3" />
+    <PackageReference Include="Syncfusion.SfChart.WPF" Version="25.2.3" />
+    <PackageReference Include="Syncfusion.SfGrid.WPF" Version="25.2.3" />
+    <PackageReference Include="Syncfusion.SfInput.WPF" Version="25.2.3" />
+    <PackageReference Include="Syncfusion.SfSkinManager.WPF" Version="25.2.3" />
+    <PackageReference Include="Syncfusion.SfTextInputLayout.WPF" Version="25.2.3" />
+    <PackageReference Include="Syncfusion.Shared.WPF" Version="25.2.3" />
+    <PackageReference Include="Syncfusion.Themes.Office2019Black.WPF" Version="25.2.3" />
+    <PackageReference Include="Syncfusion.Themes.Office2019DarkGray.WPF" Version="25.2.3" />
+    <PackageReference Include="Syncfusion.Themes.Office2019White.WPF" Version="25.2.3" />
+    <PackageReference Include="Syncfusion.Tools.WPF" Version="25.2.3" />
+	<Resource Include="Assets/App.ico" />
+	<Resource Include="Views\App.png" />
+	<Resource Include="Views\flag_usa.png" />
+	<Resource Include="Views\lock2.png" />
+	<Resource Include="Views\Login-Screen-Logo.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Assets\Resource1.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resource1.resx</DependentUpon>
+    </Compile>
+    <Compile Update="SubViews\WinOpenWorkSpace.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="SubViews\WinAbout.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="SubViews\WinRenameWorkSpace.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\CtrlDualChart.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\WinWorkspace.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Assets\Resource1.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource1.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="SubViews\WinOpenWorkSpace.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="SubViews\WinAbout.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="SubViews\WinRenameWorkSpace.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\CtrlDocumentView.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\CtrlDualChart.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\WinWorkspace.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+
+</Project>
